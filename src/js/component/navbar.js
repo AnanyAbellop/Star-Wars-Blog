@@ -16,7 +16,7 @@ export const Navbar = () => {
 					/>
 				</span>
 			</Link>
-			<div className="dropdown">
+			{/* <div className="dropdown">
 				<button
 					className="btn btn-secondary dropdown-toggle"
 					type="button"
@@ -37,8 +37,8 @@ export const Navbar = () => {
 						Something else here
 					</a>
 				</div>
-			</div>
-			{/* <div className="dropdown ml-auto">
+			</div> */}
+			<div className="dropdown">
 				<button
 					className="nav-link dropdown-toggle btn  btn-primary"
 					id="navbarDropdownMenuLink"
@@ -49,17 +49,11 @@ export const Navbar = () => {
 					Favorites
 				</button>
 				<div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<a className="dropdown-item" href="#">
-						Action
-					</a>
-					<a className="dropdown-item" href="#">
-						Another action
-					</a>
-					<a className="dropdown-item" href="#">
-						Something else here
+					<a className="dropdown-item disabled" href="#">
+						(empty)
 					</a>
 				</div>
-			</div> */}
+			</div>
 		</nav>
 	);
 };
