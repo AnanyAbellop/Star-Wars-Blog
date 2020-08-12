@@ -1,62 +1,58 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useParams } from "react-router-dom";
 
 import { Context } from "../store/appContext";
 
-import "../../styles/demo.scss";
+//import "../../styles/demo.scss";
 
 export const LearnMoreCharacters = () => {
 	const { store, actions } = useContext(Context);
+	const { character } = useParams();
 
 	return (
-		<div className="container">
-			<ul className="list-group">
-				{store.demo.map((item, index) => {
-					return (
-						<div className="card mb-3" key={index} style={{ maxWidth: "540px" }}>
-							<div className="row no-gutters">
-								<div className="col-md-4">
-									<img src="..." className="card-img" alt="..." />
-								</div>
-								<div className="col-md-8">
-									<div className="card-body">
-										<h5 className="card-title">Card title</h5>
-										<p className="card-text">
-											This is a wider card with supporting text below as a natural lead-in to
-											additional content. This content is a little bit longer.
-										</p>
-										<p className="card-text">
-											<small className="text-muted">Last updated 3 mins ago</small>
-										</p>
-									</div>
-								</div>
-							</div>
+		<div>
+			<div className="card mb-3 mx-2 margin-auto justify-content-center" style={{ maxWidth: "75%" }}>
+				<div className="row no-gutters">
+					<div className="col-md-4">
+						<img src="https://via.placeholder.com/800x600" className="card-img" alt="..." />
+					</div>
+					<div className="col-md-8">
+						<div className="card-body">
+							<h5 className="card-title">{`${store.people[character].name}`}</h5>
+							<p className="card-text">
+								This is a wider card with supporting text below as a natural lead-in to additional
+								content. This content is a little bit longer.
+							</p>
 						</div>
-						// <li
-						// 	key={index}
-						// 	className="list-group-item d-flex justify-content-between"
-						// 	style={{ background: item.background }}>
-						// 	<Link to={"/single/" + index}>
-						// 		<span>Link to: {item.title}</span>
-						// 	</Link>
-						// 	{// Conditional render example
-						// 	// Check to see if the background is orange, if so, display the message
-						// 	item.background === "orange" ? (
-						// 		<p style={{ color: item.initial }}>
-						// 			Check store/flux.js scroll to the actions to see the code
-						// 		</p>
-						// 	) : null}
-						// 	<button className="btn btn-success" onClick={() => actions.changeColor(index, "orange")}>
-						// 		Change Color
-						// 	</button>
-						// </li>
-					);
-				})}
-			</ul>
-			<br />
-			<Link to="/">
-				<button className="btn btn-primary">Back home</button>
-			</Link>
+					</div>
+				</div>
+			</div>
+			<div className="row mx-2 text-center" style={{ color: "red" }}>
+				<div className="col-2">
+					<p className="px-2">{`Name`}</p>
+					<p className="px-2">{`${store.people[character].name}`}</p>
+				</div>
+				<div className="col-2">
+					<p className="px-2">{`Birth Year`}</p>
+					<p className="px-2">{`${store.people[character].birth_year}`}</p>
+				</div>
+				<div className="col-2">
+					<p className="px-2">{`Gender`}</p>
+					<p className="px-2">{`${store.people[character].gender}`}</p>
+				</div>
+				<div className="col-2">
+					<p className="px-2">{`Height`}</p>
+					<p className="px-2">{`${store.people[character].height}`}</p>
+				</div>
+				<div className="col-2">
+					<p>{`Skin Color`}</p>
+					<p>{`${store.people[character].skin_color}`}</p>
+				</div>
+				<div className="col-2">
+					<p className="px-2">{`Eye Color`}</p>
+					<p className="px-2">{`${store.people[character].eye_color}`}</p>
+				</div>
+			</div>
 		</div>
 	);
 };
