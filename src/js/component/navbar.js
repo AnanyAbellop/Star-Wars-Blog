@@ -21,6 +21,7 @@ export const Navbar = () => {
 					className="nav-link dropdown-toggle btn  btn-primary"
 					id="navbarDropdownMenuLink"
 					role="button"
+					s
 					data-toggle="dropdown"
 					aria-haspopup="true"
 					aria-expanded="false">

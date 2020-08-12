@@ -4,6 +4,27 @@ import getState from "./flux.js";
 // Don't change, here is where we initialize our context, by default it's just going to be null.
 export const Context = React.createContext(null);
 
+var people = [
+	{
+		birthYear: "19 BBY",
+		eyeColor: "Blue",
+		gender: "Male",
+		hair_color: "Blond",
+		height: "172",
+		name: "Luke Skywalker",
+		skin_color: "Fair"
+	},
+	{
+		birthYear: "19 BBY",
+		eyeColor: "green",
+		gender: "Female",
+		hair_color: "Blond",
+		height: "172",
+		name: "Princesa A",
+		skin_color: "black"
+	}
+];
+
 // This function injects the global store to any view/component where you want to use it, we will inject the context to layout.js, you can see it here:
 // https://github.com/4GeeksAcademy/react-hello-webapp/blob/master/src/js/layout.js#L35
 const injectContext = PassedComponent => {
