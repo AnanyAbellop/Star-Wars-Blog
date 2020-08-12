@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export const Planets = ({ planets }) =>
-	planets.map((planets, index) => {
+	planets.map((planet, index) => {
 		return (
 			<div className="text-center mt-5" key={index}>
 				<div className="card" style={{ width: "18rem" }}>
@@ -18,9 +20,9 @@ export const Planets = ({ planets }) =>
 							} `}</li>
 						</ul>
 						<div className="card-footer d-flex" style={{ border: "none" }}>
-							<a href="#" className="btn btn-primary mr-auto p-2">
+							<Link to="/learnMorePlanets" className="btn btn-primary mr-auto p-2">
 								{"Learn more"}
-							</a>
+							</Link>
 							<a
 								href="#"
 								className="btn btn-light p-2 btn-outline-dark"
