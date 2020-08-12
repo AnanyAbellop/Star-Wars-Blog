@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
-import { LearnMoreCharacters } from "./views/learnMoreCharacter";
+import { LearnMoreCharacters } from "./views/learnMoreCharacter_copy";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
@@ -26,7 +26,7 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/learnMoreCharacter">
+						<Route exact path="/learnMoreCharacter_copy">
 							<LearnMoreCharacters />
 						</Route>
 						<Route exact path="/learnMorePlanets">

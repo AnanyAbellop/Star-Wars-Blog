@@ -16,19 +16,18 @@ export const Navbar = () => {
 					/>
 				</span>
 			</Link>
-			<div className="ml-auto">
+			<div className="dropdown">
 				<button
-					className="nav-link dropdown-toggle btn  btn-primary"
-					id="navbarDropdownMenuLink"
-					role="button"
-					s
+					className="btn btn-secondary dropdown-toggle"
+					type="button"
+					id="dropdownMenuButton"
 					data-toggle="dropdown"
 					aria-haspopup="true"
 					aria-expanded="false">
-					Favorites
+					Dropdown button
 				</button>
-				<div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					{/* <a className="dropdown-item" href="#">
+				<div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a className="dropdown-item" href="#">
 						Action
 					</a>
 					<a className="dropdown-item" href="#">
@@ -36,9 +35,31 @@ export const Navbar = () => {
 					</a>
 					<a className="dropdown-item" href="#">
 						Something else here
-					</a> */}
+					</a>
 				</div>
 			</div>
+			{/* <div className="dropdown ml-auto">
+				<button
+					className="nav-link dropdown-toggle btn  btn-primary"
+					id="navbarDropdownMenuLink"
+					role="button"
+					data-toggle="dropdown"
+					aria-haspopup="true"
+					aria-expanded="false">
+					Favorites
+				</button>
+				<div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<a className="dropdown-item" href="#">
+						Action
+					</a>
+					<a className="dropdown-item" href="#">
+						Another action
+					</a>
+					<a className="dropdown-item" href="#">
+						Something else here
+					</a>
+				</div>
+			</div> */}
 		</nav>
 	);
 };
