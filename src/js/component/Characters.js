@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-export const Characters = ({ people, favorites }) => {
+export const Characters = ({ people }) => {
+	const { store, actions } = useContext(Context);
 	return people.map((people, index) => {
 		return (
 			<div className="text-center mt-5" key={index}>
@@ -16,7 +17,7 @@ export const Characters = ({ people, favorites }) => {
 							<li className="list-group-item" style={{ border: "none" }}>{`Hair Color: ${
 								people.hair_color
 							} `}</li>
-							<li className="list-group-item" style={{ border: "none" }}>{`Eye Color:${
+							<li className="list-group-item" style={{ border: "none" }}>{`Eye Color: ${
 								people.eye_color
 							} `}</li>
 						</ul>
@@ -24,15 +25,13 @@ export const Characters = ({ people, favorites }) => {
 							<Link to={"/learnMoreCharacter_copy/" + index} className="btn btn-primary mr-auto p-2">
 								{"Learn more"}
 							</Link>
-							<a
+							<span
 								href="#"
 								className="btn btn-light p-2 btn-outline-dark"
 								style={{ color: "yellow", border: "yellow" }}
-								onClick={e => {
-									favorites.push(people.name);
-								}}>
+								onClick={() => actions.addFavorite(people.name)}>
 								<i className="fas fa-heart" />
-							</a>
+							</span>
 						</div>
 					</div>
 				</div>
@@ -42,6 +41,5 @@ export const Characters = ({ people, favorites }) => {
 };
 
 Characters.propTypes = {
-	people: PropTypes.array,
-	favorites: PropTypes.array
+	people: PropTypes.array
 };

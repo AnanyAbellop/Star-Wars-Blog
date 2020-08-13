@@ -18,28 +18,6 @@ export const Navbar = () => {
 					/>
 				</span>
 			</Link>
-			{/* <div className="dropdown">
-				<button
-					className="btn btn-secondary dropdown-toggle"
-					type="button"
-					id="dropdownMenuButton"
-					data-toggle="dropdown"
-					aria-haspopup="true"
-					aria-expanded="false">
-					Dropdown button
-				</button>
-				<div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					<a className="dropdown-item" href="#">
-						Action
-					</a>
-					<a className="dropdown-item" href="#">
-						Another action
-					</a>
-					<a className="dropdown-item" href="#">
-						Something else here
-					</a>
-				</div>
-			</div> */}
 			<div className="dropdown">
 				<button
 					className="nav-link dropdown-toggle btn  btn-primary"
@@ -53,15 +31,14 @@ export const Navbar = () => {
 				<div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 					{store.favorites.map((favorite, index) => {
 						return (
-							<a className="dropdown-item disabled" key={index} href="#">
+							<span className="dropdown-item disabled" key={index} href="#">
 								{favorite}
-							</a>
+								<div onClick={() => actions.removeFavorite(index)}>
+									<i className="fas fa-trash float-right" />
+								</div>
+							</span>
 						);
 					})}
-
-					{/* <a className="dropdown-item disabled" href="#">
-						(empty)
-					</a> */}
 				</div>
 			</div>
 		</nav>

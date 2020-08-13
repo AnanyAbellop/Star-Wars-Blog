@@ -15,82 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			people: [],
-			// people: [
-			// 	{
-			// 		birth_year: "19 BBY",
-			// 		eye_color: "Blue",
-			// 		gender: "Male",
-			// 		hair_color: "Blond",
-			// 		height: "172",
-			// 		name: "Luke Skywalker",
-			// 		skin_color: "Fair"
-			// 	},
-			// 	{
-			// 		birth_year: "19 BBY",
-			// 		eye_color: "green",
-			// 		gender: "Female",
-			// 		hair_color: "Blond",
-			// 		height: "172",
-			// 		name: "Princesa A",
-			// 		skin_color: "black"
-			// 	},
-			// 	{
-			// 		birth_year: "19 BBY",
-			// 		eye_color: "green",
-			// 		gender: "Female",
-			// 		hair_color: "Blond",
-			// 		height: "172",
-			// 		name: "Princesa A",
-			// 		skin_color: "black"
-			// 	},
-			// 	{
-			// 		birth_year: "19 BBY",
-			// 		eye_color: "green",
-			// 		gender: "Female",
-			// 		hair_color: "Blond",
-			// 		height: "172",
-			// 		name: "Princesa A",
-			// 		skin_color: "black"
-			// 	},
-			// 	{
-			// 		birth_year: "19 BBY",
-			// 		eye_color: "green",
-			// 		gender: "Female",
-			// 		hair_color: "Blond",
-			// 		height: "172",
-			// 		name: "Princesa A",
-			// 		skin_color: "black"
-			// 	},
-			// 	{
-			// 		birth_year: "19 BBY",
-			// 		eye_color: "green",
-			// 		gender: "Female",
-			// 		hair_color: "Blond",
-			// 		height: "172",
-			// 		name: "Princesa A",
-			// 		skin_color: "black"
-			// 	}
-			// ],
-			planets: [
-				{
-					climate: "Arid",
-					name: "Tatooine",
-					diameter: "10465",
-					orbital_period: "304",
-					population: "120000",
-					rotation_period: "23",
-					terrain: "Dessert"
-				},
-				{
-					climate: "Agua ",
-					name: "Tierra",
-					diameter: "muchos KM ",
-					orbital_period: "NOSE ",
-					population: "120000",
-					rotation_period: "23",
-					terrain: "Amor"
-				}
-			],
+			planets: [],
 			favorites: []
 		},
 		actions: {
@@ -98,15 +23,47 @@ const getState = ({ getStore, getActions, setStore }) => {
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
+			addFavorite: newFavorite => {
+				const store = getStore();
+				setStore({
+					favorites: [...store.favorites, newFavorite]
+				});
+			},
+			removeFavorite: indexItem => {
+				const store = getStore();
+				alert("ENTRE EN EL REMOVE");
+				const newF = store.favorites.filter((favorite, index) => {
+					return index != indexItem;
+				});
+				setStore({
+					favorites: [newF]
+				});
+			},
 			getPeople: async () => {
-				const response = await fetch(`${baseUrl}/people`);
 				try {
+					const response = await fetch(`${baseUrl}/people/`);
+
 					if (response.ok) {
-						people = await response.json();
-						// (people)=>{
-						//         return people;
-						// }
-						store.people.push;
+						let people = await response.json();
+						setStore({
+							people: people.results
+						});
+					} else {
+						console.log(`response: ${response.status} ${response.statusText}`);
+					}
+				} catch (error) {
+					console.log(`error!!!!!: ${error}`);
+				}
+			},
+			getPlanet: async () => {
+				try {
+					const response = await fetch(`${baseUrl}/planets/`);
+
+					if (response.ok) {
+						let planet = await response.json();
+						setStore({
+							planets: planet.results
+						});
 					} else {
 						console.log(`response: ${response.status} ${response.statusText}`);
 					}
