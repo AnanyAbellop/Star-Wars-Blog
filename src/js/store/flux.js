@@ -1,3 +1,4 @@
+const baseUrl = "https://swapi.dev/api";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -13,26 +14,63 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
-			people: [
-				{
-					birth_year: "19 BBY",
-					eye_color: "Blue",
-					gender: "Male",
-					hair_color: "Blond",
-					height: "172",
-					name: "Luke Skywalker",
-					skin_color: "Fair"
-				},
-				{
-					birth_year: "19 BBY",
-					eye_color: "green",
-					gender: "Female",
-					hair_color: "Blond",
-					height: "172",
-					name: "Princesa A",
-					skin_color: "black"
-				}
-			],
+			people: [],
+			// people: [
+			// 	{
+			// 		birth_year: "19 BBY",
+			// 		eye_color: "Blue",
+			// 		gender: "Male",
+			// 		hair_color: "Blond",
+			// 		height: "172",
+			// 		name: "Luke Skywalker",
+			// 		skin_color: "Fair"
+			// 	},
+			// 	{
+			// 		birth_year: "19 BBY",
+			// 		eye_color: "green",
+			// 		gender: "Female",
+			// 		hair_color: "Blond",
+			// 		height: "172",
+			// 		name: "Princesa A",
+			// 		skin_color: "black"
+			// 	},
+			// 	{
+			// 		birth_year: "19 BBY",
+			// 		eye_color: "green",
+			// 		gender: "Female",
+			// 		hair_color: "Blond",
+			// 		height: "172",
+			// 		name: "Princesa A",
+			// 		skin_color: "black"
+			// 	},
+			// 	{
+			// 		birth_year: "19 BBY",
+			// 		eye_color: "green",
+			// 		gender: "Female",
+			// 		hair_color: "Blond",
+			// 		height: "172",
+			// 		name: "Princesa A",
+			// 		skin_color: "black"
+			// 	},
+			// 	{
+			// 		birth_year: "19 BBY",
+			// 		eye_color: "green",
+			// 		gender: "Female",
+			// 		hair_color: "Blond",
+			// 		height: "172",
+			// 		name: "Princesa A",
+			// 		skin_color: "black"
+			// 	},
+			// 	{
+			// 		birth_year: "19 BBY",
+			// 		eye_color: "green",
+			// 		gender: "Female",
+			// 		hair_color: "Blond",
+			// 		height: "172",
+			// 		name: "Princesa A",
+			// 		skin_color: "black"
+			// 	}
+			// ],
 			planets: [
 				{
 					climate: "Arid",
@@ -60,6 +98,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
+			getPeople: async () => {
+				const response = await fetch(`${baseUrl}/people`);
+				try {
+					if (response.ok) {
+						people = await response.json();
+						// (people)=>{
+						//         return people;
+						// }
+						store.people.push;
+					} else {
+						console.log(`response: ${response.status} ${response.statusText}`);
+					}
+				} catch (error) {
+					console.log(`error!!!!!: ${error}`);
+				}
+			},
 			loadSomeData: () => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
@@ -77,7 +131,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 
 				//reset the global store
-				setStore({ demo: demo });
+				setStore({ people: people });
 			}
 		}
 	};
