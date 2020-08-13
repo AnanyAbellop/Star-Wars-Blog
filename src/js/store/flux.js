@@ -52,7 +52,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					rotation_period: "23",
 					terrain: "Amor"
 				}
-			]
+			],
+			favorites: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction

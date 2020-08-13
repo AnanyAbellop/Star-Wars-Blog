@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-export const Characters = ({ people }) => {
+export const Characters = ({ people, favorites }) => {
 	return people.map((people, index) => {
 		return (
 			<div className="text-center mt-5" key={index}>
@@ -27,7 +27,10 @@ export const Characters = ({ people }) => {
 							<a
 								href="#"
 								className="btn btn-light p-2 btn-outline-dark"
-								style={{ color: "yellow", border: "yellow" }}>
+								style={{ color: "yellow", border: "yellow" }}
+								onClick={e => {
+									favorites.push(people.name);
+								}}>
 								<i className="fas fa-heart" />
 							</a>
 						</div>
@@ -39,5 +42,6 @@ export const Characters = ({ people }) => {
 };
 
 Characters.propTypes = {
-	people: PropTypes.array
+	people: PropTypes.array,
+	favorites: PropTypes.array
 };

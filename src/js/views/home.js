@@ -8,11 +8,11 @@ export const Home = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<>
-			<div className="row">
+			<div className="row mx-2">
 				<h1 style={{ color: "#E16262" }}>{"Characters"}</h1>
-				<Characters people={store.people} />
+				<Characters people={store.people} favorites={store.favorites} />
 			</div>
-			<div className="row">
+			<div className="row mx-2">
 				<h1 style={{ color: "#E16262" }}>{"Planets"}</h1>
 				<Planets planets={store.planets} />
 			</div>

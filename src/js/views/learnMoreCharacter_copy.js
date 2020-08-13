@@ -27,6 +27,7 @@ export const LearnMoreCharacters = () => {
 					</div>
 				</div>
 			</div>
+			<hr style={{ border: "1px solid red", maxWidth: "95%" }} />
 			<div className="row mx-2 text-center" style={{ color: "red" }}>
 				<div className="col-2">
 					<p className="px-2">{`Name`}</p>
