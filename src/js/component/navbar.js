@@ -31,14 +31,9 @@ export const Navbar = () => {
 				<div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 					{store.favorites.map((favorite, index) => {
 						return (
-							<span
-								href="#"
-								key={index}
-								className="btn btn-light p-2 btn-outline-dark"
-								style={{ color: "yellow", border: "yellow" }}
-								onClick={() => actions.removeFavorite(index)}>
+							<span className="dropdown-item" href="#" key={index}>
 								{favorite}
-								<i className="fas fa-trash float-right" />
+								<i className="fas fa-trash float-right" onClick={() => actions.removeFavorite(index)} />
 							</span>
 
 							// <span className="dropdown-item disabled" href="#" key={index}>

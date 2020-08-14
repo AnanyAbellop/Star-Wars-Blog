@@ -31,12 +31,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			removeFavorite: indexItem => {
 				const store = getStore();
-				alert("ENTRE EN EL REMOVE");
 				const newF = store.favorites.filter((favorite, index) => {
 					return index != indexItem;
 				});
 				setStore({
-					favorites: [newF]
+					favorites: newF
 				});
 			},
 			getPeople: async () => {

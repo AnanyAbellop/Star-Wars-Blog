@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-export const Planets = ({ planets }) =>
-	planets.map((planet, index) => {
+export const Planets = ({ planets }) => {
+	const { store, actions } = useContext(Context);
+	return planets.map((planet, index) => {
 		return (
 			<div className="text-center mt-5" key={index}>
 				<div className="card" style={{ width: "18rem" }}>
@@ -23,19 +24,20 @@ export const Planets = ({ planets }) =>
 							<Link to={"/learnMorePlanets/" + index} className="btn btn-primary mr-auto p-2">
 								{"Learn more"}
 							</Link>
-							<a
+							<span
 								href="#"
 								className="btn btn-light p-2 btn-outline-dark"
-								style={{ color: "yellow", border: "yellow" }}>
+								style={{ color: "#FFF300", border: "#A2A1A1" }}
+								onClick={() => actions.addFavorite(planet.name)}>
 								<i className="fas fa-heart" />
-							</a>
+							</span>
 						</div>
 					</div>
 				</div>
 			</div>
 		);
 	});
-
+};
 Planets.propTypes = {
 	planets: PropTypes.array
 };

@@ -28,7 +28,7 @@ export const Characters = ({ people }) => {
 							<span
 								href="#"
 								className="btn btn-light p-2 btn-outline-dark"
-								style={{ color: "yellow", border: "yellow" }}
+								style={{ color: "#FFF300", border: "#A2A1A1" }}
 								onClick={() => actions.addFavorite(people.name)}>
 								<i className="fas fa-heart" />
 							</span>
