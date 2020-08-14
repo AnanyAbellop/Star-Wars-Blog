@@ -10,11 +10,20 @@ export const Home = () => {
 		<>
 			<div className="row mx-2">
 				<h1 style={{ color: "#E16262" }}>{"Characters"}</h1>
-				<Characters people={store.people} />
+				<div
+					className="scrollmenu d-flex"
+					style={{
+						overflow: "auto",
+						whiteSpace: "nowrap"
+					}}>
+					<Characters people={store.people} />
+				</div>
 			</div>
 			<div className="row mx-2">
 				<h1 style={{ color: "#E16262" }}>{"Planets"}</h1>
-				<Planets planets={store.planets} />
+				<div className="scrollmenu d-flex">
+					<Planets planets={store.planets} />
+				</div>
 			</div>
 		</>
 	);

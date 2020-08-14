@@ -27,6 +27,7 @@ export const Navbar = () => {
 					aria-haspopup="true"
 					aria-expanded="false">
 					Favorites
+					<span>{store.favorites.length}</span>
 				</button>
 				<div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 					{store.favorites.map((favorite, index) => {

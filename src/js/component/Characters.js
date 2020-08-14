@@ -7,7 +7,7 @@ export const Characters = ({ people }) => {
 	const { store, actions } = useContext(Context);
 	return people.map((people, index) => {
 		return (
-			<div className="text-center mt-5" key={index}>
+			<div className="text-center mt-5 " key={index}>
 				<div className="card" style={{ width: "18rem" }}>
 					<img src="https://via.placeholder.com/400x200" className="card-img-top" alt="..." />
 					<div className="card-body ">

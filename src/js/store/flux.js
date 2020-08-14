@@ -36,7 +36,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return index != indexItem;
 				});
 				setStore({
-					favorites: [newF]
+					favorites: newF
 				});
 			},
 			getPeople: async () => {
