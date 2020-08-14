@@ -10,15 +10,15 @@ export const LearnMoreCharacters = () => {
 	const { character } = useParams();
 
 	return (
-		<div>
-			<div className="card mb-3 mx-2 margin-auto justify-content-center" style={{ maxWidth: "75%" }}>
+		<div style={{ marginTop: "150px", justifyContent: "center" }}>
+			<div className="card mb-3 mx-2" style={{ maxWidth: "75%" }}>
 				<div className="row no-gutters">
 					<div className="col-md-4">
 						<img src="https://via.placeholder.com/800x600" className="card-img" alt="..." />
 					</div>
 					<div className="col-md-8">
 						<div className="card-body">
-							<h5 className="card-title">{`${store.people[character].name}`}</h5>
+							<h5 className="card-title">{store.people[character].name}</h5>
 							<p className="card-text">
 								This is a wider card with supporting text below as a natural lead-in to additional
 								content. This content is a little bit longer.

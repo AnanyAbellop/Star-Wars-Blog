@@ -8,7 +8,7 @@ export const LearnMorePlanets = () => {
 	const { store, actions } = useContext(Context);
 	const { planet } = useParams();
 	return (
-		<div>
+		<div style={{ marginTop: "150px", margin: "auto" }}>
 			<div className="card mb-3 mx-2 margin-auto justify-content-center" style={{ maxWidth: "75%" }}>
 				<div className="row no-gutters">
 					<div className="col-md-4">
