@@ -31,12 +31,22 @@ export const Navbar = () => {
 				<div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 					{store.favorites.map((favorite, index) => {
 						return (
-							<span className="dropdown-item disabled" key={index} href="#">
+							<span
+								href="#"
+								key={index}
+								className="btn btn-light p-2 btn-outline-dark"
+								style={{ color: "yellow", border: "yellow" }}
+								onClick={() => actions.removeFavorite(index)}>
 								{favorite}
-								<div onClick={() => actions.removeFavorite(index)}>
-									<i className="fas fa-trash float-right" />
-								</div>
+								<i className="fas fa-trash float-right" />
 							</span>
+
+							// <span className="dropdown-item disabled" href="#" key={index}>
+							// 	{favorite}
+							// 	<button href="#" onClick={() => actions.removeFavorite(index)}>
+							// 		<i className="fas fa-trash float-right" />
+							// 	</button>
+							// </span>
 						);
 					})}
 				</div>

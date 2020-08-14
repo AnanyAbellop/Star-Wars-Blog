@@ -32,6 +32,13 @@ export const Characters = ({ people }) => {
 								onClick={() => actions.addFavorite(people.name)}>
 								<i className="fas fa-heart" />
 							</span>
+							{/* <span
+								href="#"
+								className="btn btn-light p-2 btn-outline-dark"
+								style={{ color: "yellow", border: "yellow" }}
+								onClick={() => actions.removeFavorite(index)}>
+								<i className="fas fa-heart" />
+							</span> */}
 						</div>
 					</div>
 				</div>
